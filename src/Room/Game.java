@@ -11,11 +11,16 @@ public class Game {
 	
 	}//end of main
 
-	
+	public static Room currentRoom = World.buildWorld();
 	public static ArrayList<Item> inventory = new ArrayList<Item>();
 	
+	//Returns item from inventory, needs item
+	public static Item getItem(Item i) {
+		int in = inventory.indexOf(i);
+		return inventory.get(in);
+	}
+	
 	public static void runGame() {
-		Room currentRoom = World.buildWorld();
 		Scanner input = new Scanner(System.in);
 		
 		String command;//player's command
@@ -66,16 +71,46 @@ public class Game {
 				}
 				break;
 			case "look":
-				if(currentRoom.getItem(words[1]) != null) {
-					System.out.println(currentRoom.getItem(words[1]).getDescription());
-					
+				//if an item is in a room or inventory prints it description, else print 
+				//System.out.println(words[1]);
+				if(currentRoom.getItem(words[1]) == null && inventory.isEmpty()){
+					System.out.println("You can not look at this.");
 				}
-				if (inventory.contains(words[1])){
-					int i = inventory.indexOf(words[1]);
-					System.out.println(inventory.get(i).getDescription());
+				else if(currentRoom.getItem(words[1]) != null) {
+					System.out.println(currentRoom.getItem(words[1]).getDescription());
 				}
 				else {
-					System.out.println("You can not look at this.");
+				for(int i = 0; i < inventory.size(); i++) {
+					//System.out.println(inventory.get(i).getName());
+					if(inventory.get(i).getName().equals(words[1])) {
+					System.out.println(inventory.get(i).getDescription());
+					}
+				}}
+				break;
+			case "open":
+				if(currentRoom.getItem(words[1]) == null && inventory.isEmpty()){
+					System.out.println("You can not open this.");
+				}
+				else if(currentRoom.getItem(words[1]) != null) {
+					currentRoom.getItem(words[1]).open();
+				}
+				else {
+				for(int i = 0; i < inventory.size(); i++) {
+					if(inventory.get(i).getName().equals(words[1])) {
+						inventory.get(i).open();
+					}
+				}}
+				break;
+			case "use":
+				if (currentRoom.getItem(words[1]) != null) {
+					currentRoom.getItem(words[1]).use();
+				}
+				else if(inventory.contains(words[1])) {
+					int i = inventory.indexOf(words[1]);
+					inventory.get(i).use();
+				}
+				else {
+					System.out.println("You can not use this.");
 				}
 				break;
 			case "x":
@@ -89,7 +124,12 @@ public class Game {
 		
 		input.close();
 		
+		
 	}//end of runGame
+	
+	public static void print(Object obj) {
+		 System.out.println(obj.toString());
+		}
 	
 	
 }

@@ -34,4 +34,14 @@ public class Item {
 	public String toString() {
 		return name;
 	}
+	
+	//Open
+	public void open() {
+		Game.print("You can't open that!");
+	}
+	
+	//Use
+	public void use() {
+		Game.print("You can't use that!");
+	}
 }

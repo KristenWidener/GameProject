@@ -55,6 +55,12 @@ public class World {
 		Item hat = new Item("hat", "a hat.");
 		Item water = new Item("water", "a water bottle.");
 		
+		//Inheritance Items
+		Safe safe = new Safe("safe","a small wooden box");
+		town.setItem("safe", safe);
+		Combination shovel = new Combination("shovel", "a new shiny shovel with numbers on it.");
+		beach.setItem("shovel", shovel);
+		
 		//Place Item
 		//Test items
 		farm.setItem("gloves", gloves);
