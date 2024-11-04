@@ -27,7 +27,6 @@ public class Game {
 		
 		do {
 			System.out.println(currentRoom);
-			
 			//printed items in description
 			//if(currentRoom.item != null) {
 			//System.out.println("There is " + currentRoom.item.getDescription());
@@ -81,7 +80,6 @@ public class Game {
 				}
 				else {
 				for(int i = 0; i < inventory.size(); i++) {
-					//System.out.println(inventory.get(i).getName());
 					if(inventory.get(i).getName().equals(words[1])) {
 					System.out.println(inventory.get(i).getDescription());
 					}
