@@ -42,7 +42,10 @@ public class Game {
 			case "s":
 			case "u":
 			case "d":
-				if(currentRoom.getExit(command.charAt(0)) == null) {
+				if(currentRoom.getExit(command.charAt(0)).getLock() == true) {
+					System.out.println("This way is locked, come back with a key");
+				}
+				else if(currentRoom.getExit(command.charAt(0)) == null) {
 					System.out.println("You can not go this way.");
 				}
 				else {
@@ -100,16 +103,18 @@ public class Game {
 				}}
 				break;
 			case "use":
-				if (currentRoom.getItem(words[1]) != null) {
-					currentRoom.getItem(words[1]).use();
-				}
-				else if(inventory.contains(words[1])) {
-					int i = inventory.indexOf(words[1]);
-					inventory.get(i).use();
-				}
-				else {
+				if(currentRoom.getItem(words[1]) == null && inventory.isEmpty()){
 					System.out.println("You can not use this.");
 				}
+				else if(currentRoom.getItem(words[1]) != null) {
+					currentRoom.getItem(words[1]).use();
+				}
+				else {
+				for(int i = 0; i < inventory.size(); i++) {
+					if(inventory.get(i).getName().equals(words[1])) {
+					inventory.get(i).use();
+					}
+				}}
 				break;
 			case "x":
 				System.out.println("Thank you for exploring!");
@@ -121,7 +126,6 @@ public class Game {
 		}while(!command.equals("x"));//runs till user enters x
 		
 		input.close();
-		
 		
 	}//end of runGame
 	

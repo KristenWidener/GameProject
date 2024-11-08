@@ -12,13 +12,15 @@ public class Room {
 	private Room west;
 	private Room up;
 	private Room down;
+	private boolean lock;
+	private String name;
 	
 	private HashMap<String, Item> item = new HashMap<String, Item>();
 	
 	//Sets room description
-	public Room(String d) {
+	public Room(String d, String n) {
 		description = d;
-	
+		name = n;
 	}
 
 	//Returns exit, or null if no a char from the list
@@ -83,4 +85,23 @@ public class Room {
 	public void removeItem(String s) {
 		item.remove(s);
 	}
+	
+	//Lock Methods
+	public void setLock(boolean n) {
+		lock = n;
+	}
+	
+	public boolean getLock() {
+		return lock;
+	}
+
+	//Name Methods
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String n) {
+		name = n;
+	}
+
 }
