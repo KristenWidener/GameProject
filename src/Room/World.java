@@ -18,22 +18,41 @@ public class World {
 						"there are stairs that lead upstairs.", "Townhall");
 		Room office = new Room("You in a messy Office. There are stairs that lead downstairs.", "Office");
 		
-		//House directions
+		//House directions & Items
 		house.addExit(farm, 's');
 		
-		//Farm directions
+		Item pen = new Item("pen", "a fancy pen.");
+		house.setItem("pen", pen);
+		
+		Rake rake = new Rake("rake", "it's a rake!");//bait(item) used at baitshop teleports & unlocks market
+		house.setItem("rake", rake);
+		
+		//Farm directions & items
 		farm.addExit(house, 'n');
 		farm.addExit(town, 'e');
 		
-		//Town directions
+		Item gloves = new Item("gloves", "a pair of new gardening gloves.");
+		Item hat = new Item("hat", "a hat.");
+		Item water = new Item("water", "a water bottle.");
+		farm.setItem("gloves", gloves);
+		farm.setItem("water", water);
+		farm.setItem("hat", hat);
+		
+		
+		//Town directions & items
 		town.addExit(farm, 'w');
 		town.addExit(market, 'n');
 		town.addExit(townhall,'e');
 		town.addExit(beach, 's');
 		
-		//Market directions, unlocks when bait is used in baitshop
+		Item key = new Item("key", "an old rusty key.");
+		town.setItem("key", key);
+		
+		//Market directions & items, unlocks when worms is used in baitshop
 		market.addExit(town, 's');
 		market.setLock(true);
+		Seeds carrotseeds = new Seeds("carrotseeds", "it's carrot seeds.");
+		market.setItem("carrotseeds", carrotseeds);
 		
 		//Townhall directions
 		townhall.addExit(town, 'w');
@@ -50,43 +69,15 @@ public class World {
 		//Baitshop directions
 		baitshop.addExit(beach, 'w');
 		
-		//Create Items
-		//Item seeds = new Item("seeds", "a small pack of carrot seeds.");
-		Item pen = new Item("pen", "a fancy pen.");
-		Item key = new Item("key", "an old rusty key.");
-		
-		//Lock Lab Items (need in final game)
-		Worms worms = new Worms("worms", "a bunch of earth worms");//rack(item) used in towm gives bait(item)
-		Rake rake = new Rake("rake", "it's a rake!");//bait(item) used at baitshop teleports & unlocks market
-		house.setItem("rake", rake);
-		Seeds carrotseeds = new Seeds("carrotseeds", "it's carrot seeds.");
-		//Use seeds on farm give plant(item) 
-		
-		
-		//Test items
-		Item gloves = new Item("gloves", "a pair of new gardening gloves.");
-		Item hat = new Item("hat", "a hat.");
-		Item water = new Item("water", "a water bottle.");
-		
-		//Room Key
+		//Room Key (will be removed from game)
 		Key test = new Key("test", "test key for the locked office");
 		market.setItem("test", test);
 		
-		//Inheritance Items
+		//Inheritance Items (will be removed from game)
 		Safe safe = new Safe("safe","a small wooden box");
 		town.setItem("safe", safe);
 		Combination shovel = new Combination("shovel", "a new shiny shovel with numbers on it.");
 		beach.setItem("shovel", shovel);
-		
-		//Place Item
-		//Test items
-		farm.setItem("gloves", gloves);
-		farm.setItem("water", water);
-		farm.setItem("hat", hat);
-		
-		town.setItem("key", key);
-		house.setItem("pen", pen);
-		market.setItem("carrotseeds", carrotseeds);
 		
 		return house;
 	}
