@@ -1,0 +1,23 @@
+house
+You are in a old, one roomed, house. There is a door in the south of the room. There is a rake and $3 in the room. (the puppy is in this room).
+#
+farm
+You are on a Farm covered in debris and dead plants. North is the House. A sign labeled Town points east.
+#
+town
+You are in a small town with a bunch of leaves on all over. West leads back to the Farm. To the north a building with produce outside has a sign label "Frank's Fresh Food" East is a large building labeled Townhall. There is another sign pointing south labeled Beach.
+#
+market
+You are in a local grocery market. A woman with the name tag sally is behind the counter. There is a key hanging up. South is the exit door back into Town.
+#
+beach
+You are on a tiny, cold beach. To the east you see a Baitshop built on an dock. A sign to the north is labeled Town.
+#
+baitshop
+You are in a Baitshop on the dock. There is a fisherman at the desk. To the west is the door you came in through.
+#
+townhall
+You are in the Townhall. A door on the west wall leads back to Town, there are stairs that lead upstairs.
+#
+office
+You in a messy Office. I tired mayor is in the office. There are stairs that lead downstairs.
