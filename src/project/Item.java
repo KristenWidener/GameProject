@@ -1,6 +1,8 @@
-package Room;
+package project;
 
-public class Item {
+import java.io.Serializable;
+
+public class Item implements Serializable{
 	
 	public String name;
 	public String description;
@@ -44,4 +46,6 @@ public class Item {
 	public void use() {
 		Game.print("You can't use that!");
 	}
+	
+	//Give, add with npc
 }

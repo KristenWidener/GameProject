@@ -1,5 +1,4 @@
-package Room;
-import java.util.ArrayList;
+package project;
 
 public class Safe extends Item{
 

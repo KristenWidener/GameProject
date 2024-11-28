@@ -1,4 +1,4 @@
-package Room;
+package project;
 
 public class Rake extends Item{
 	
@@ -8,7 +8,7 @@ public class Rake extends Item{
 	
 	@Override
 	public void use() {
-		if(Game.currentRoom.getName() == "Town") {
+		if(Game.currentRoom.getName() == "town") {
 			Game.print("You use the rake to clean up the leaves and find worms, ew. Who would want this?");
 			Worms worms = new Worms("worms", "a bunch of earth worms");
 			Game.inventory.add(worms);

@@ -1,4 +1,4 @@
-package Room;
+package project;
 
 public class Plants {
 

@@ -1,4 +1,4 @@
-package Room;
+package project;
 
 public class Key extends Item {
 
@@ -8,8 +8,7 @@ public class Key extends Item {
 	
 	@Override
 	public void use() {
-		
-		if(Game.currentRoom.getName() == "Townhall") {
+		if(Game.currentRoom.getName().equals("townhall")) {
 			Game.currentRoom.getExit('u').setLock(false);
 			Game.print("The Office door unlocked!");
 		}

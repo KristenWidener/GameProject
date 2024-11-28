@@ -1,11 +1,11 @@
-package Room;
+package project;
 
+import java.io.Serializable;
 import java.util.HashMap;
 
-public class Room {
-	
+public class Room implements Serializable {
+
 	//Variables
-	private String description;
 	private Room north;
 	private Room east;
 	private Room south;
@@ -16,11 +16,16 @@ public class Room {
 	private String name;
 	
 	private HashMap<String, Item> item = new HashMap<String, Item>();
-	
+	private HashMap<String, NPC> characters = new HashMap<String, NPC>();
+ 	
 	//Sets room description
-	public Room(String d, String n) {
-		description = d;
+	public Room(String n) {
 		name = n;
+		lock = false;
+		try{World.currentWorldMap.put(n, this);
+		}catch(Exception e){
+			e.printStackTrace();
+		}
 	}
 
 	//Returns exit, or null if no a char from the list
@@ -70,11 +75,6 @@ public class Room {
 			return null;
 	}//end of addExit
 	
-	//Gives room's description
-	public String toString() {
-		return description;
-	}//end of toString
-	
 	//Set/Get item
 	public void setItem(String s, Item i) {
 		item.put(s, i);
@@ -84,6 +84,17 @@ public class Room {
 	}
 	public void removeItem(String s) {
 		item.remove(s);
+	}
+	
+	//Get/Set NPC
+	public void setNPC(String s, NPC n) {
+		characters.put(s, n);
+	}
+	public NPC getNPC(String s) {
+		return characters.get(s);
+	}
+	public void removeNPC(String s) {
+		characters.remove(s);
 	}
 	
 	//Lock Methods
@@ -102,6 +113,10 @@ public class Room {
 
 	public void setName(String n) {
 		name = n;
+	}
+	
+	public String getDescription() {
+		return Game.roomdescriptions.get(name);
 	}
 
 }

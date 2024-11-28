@@ -1,4 +1,4 @@
-package Room;
+package project;
 
 public class Seeds extends Item{
 
@@ -8,7 +8,7 @@ public class Seeds extends Item{
 	
 	@Override
 	public void use() {
-		if(Game.currentRoom.getName() == "Farm") {
+		if(Game.currentRoom.getName() == "farm") {
 			Game.print("With a little sun, water, and care you plant the carrot seeds and grow a carrot.");
 			Item carrot = new Item("carrot", "it's a carrot! wow! you grew that!");
 			Game.inventory.add(carrot);
