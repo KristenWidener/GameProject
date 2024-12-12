@@ -32,7 +32,7 @@ public class Mayor extends NPC{
 		}
 		else if(count == 1 && distressed == true) {
 			say("Sorry filling it out real quick..." + "Here you go! I'm gonna get some fresh air, see you around!");
-			Item permit = new Item("permit", "you can now plant thing on your farm!");
+			Item permit = new Item("permit", "you can now plant things on your farm!");
 			Game.inventory.add(permit);
 			Game.permit = true;
 			World.town.setNPC("mayor", World.office.getNPC("mayor"));

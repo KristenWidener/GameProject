@@ -58,10 +58,10 @@ public class Fisherman extends NPC{
 		else if(count == 1) {
 			switch(option) {
 			case 1:
-				say("Really? I would really owe you one. I'm good friends with the owner of the market maybe I could get them to open it up for you in exchange.");
+				say("Really? I would really owe you one. I'm good friends with the owner of the market maybe I could get her to open it up for you in exchange.");
 				break;
 			case 2:
-				say("I know that owner of the market, if you can help me by getting some worms, I can probalby get them to open u for you for a bit. ");
+				say("I know that owner of the market, if you can help me by getting some worms, I can probalby get her to open for you for a bit. ");
 				break;
 			}
 		}

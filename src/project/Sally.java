@@ -32,7 +32,7 @@ public class Sally extends NPC {
 		}
 		else if (count == 1) {
 			say("Oh! I almost forget I can't sell you the seeds till you have a planter's permit." +
-				"You can get on from the major's office, I all keep the store open while you pick on up.");
+				"You can get one from the major's office, I will keep the store open while you pick one up.");
 			count++;
 		}
 		else if(count == 2 && paid == true) {
