@@ -1,6 +1,10 @@
 package project;
 
-public class NPC {
+import java.io.Serializable;
+
+import javax.swing.JOptionPane;
+
+public class NPC implements Serializable{
 
 	private String name; // NPC's name
 	private String desc; // NPC's description
@@ -31,17 +35,27 @@ public class NPC {
 	}
 	
 	public void getResponse(String[] options) {
-		 for(int i=0; i<options.length; i++) {
-			 Game.print("Option "+(i+1)+": "+options[i]);
-	}
-		 
-		 Game.print("Enter an option (1-"+options.length+"):");
-		 int option = Game.input.nextInt();//input was scan
-		 Game.input.nextLine(); // Flush input buffer
-		 response(option);
+		String s = "";
+			for (int i = 0; i < options.length; i++) {
+				s += "Option " + (i + 1) + ": " + options[i] + "\n";
+			}
+			s += "Enter an option (1-" + options.length + "):";
+			int option = Integer.parseInt(JOptionPane.showInputDialog(s));
+			response(option);
 	}
 	
+//	public void getResponse(String[] options) {
+//		 for(int i=0; i<options.length; i++) {
+//			 Game.print("Option "+(i+1)+": "+options[i]);
+//	}
+//		 
+//		 Game.print("Enter an option (1-"+options.length+"):");
+//		 int option = Game.input.nextInt();//input was scan
+//		 Game.input.nextLine(); // Flush input buffer
+//		 response(option);
+//	}
+	
 	public void give() {
-		
+		Game.print("You can't give that to "+name+".");
 	}
 }

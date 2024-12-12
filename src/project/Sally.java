@@ -12,8 +12,17 @@ public class Sally extends NPC {
 	
 	@Override
 	public void talk() {
-		if(count == 0) {
+		if(count == 0 && Game.hat == false) {
 			say("Hi! I'm Sally I own the market, inherited from my dad, the one and only frank. How can I help you?");
+			String[] options = {
+				"I want to buy some seeds",
+				"Can I have some seeds?"
+			};
+			getResponse(options);
+			count++;
+		}
+		else if(count == 0 && Game.hat == true) {
+			say("Hi! I'm Sally I own the market, inherited from my dad, the one and only frank. Cool hat How can I help you?");
 			String[] options = {
 				"I want to buy some seeds",
 				"Can I have some seeds?"
@@ -27,28 +36,36 @@ public class Sally extends NPC {
 			count++;
 		}
 		else if(count == 2 && paid == true) {
+			boolean hold = false;
 			for(int i = 0; i < Game.inventory.size(); i++) {
 				if(Game.inventory.get(i).getName().equals("permit")) {
-					say("Alright, your all set! Happy planting.");
-					Seeds carrotseeds = new Seeds("carrotseeds", "it's carrot seeds.");
-					Game.inventory.add(carrotseeds);
+					hold = true;
 				}
+			}
+			if(hold == true) {
+				say("Alright, your all set! Happy planting.");
+				Seeds carrotseeds = new Seeds("carrotseeds", "it's carrot seeds.");
+				Game.inventory.add(carrotseeds);
+			}
 				else {
 					say("Let me know once you gotten the permit.");
 				}
-			}
 			count++;
-		}
+			}
 		else if(count == 2 && paid == false) {
+			boolean hold = false;
 			for(int i = 0; i < Game.inventory.size(); i++) {
 				if(Game.inventory.get(i).getName().equals("permit")) {
+					hold = true;
+				}
+				if(hold == true) {
 					say("I see you got your permit! I just need the payment and the seeds are all yours!");
 				}
 				else {
-					say("Let me know once you gotten the permit.");
+					say("I'm just waiting on your payment.");
 				}
-			}
 			count++;
+			}
 		}
 		else if(count == 3 && Game.permit == false && paid == true) {
 			say("Let me know once you gotten the permit.");

@@ -14,6 +14,7 @@ public class Room implements Serializable {
 	private Room down;
 	private boolean lock;
 	private String name;
+	private String descriptionname;
 	
 	private HashMap<String, Item> item = new HashMap<String, Item>();
 	private HashMap<String, NPC> characters = new HashMap<String, NPC>();
@@ -26,6 +27,7 @@ public class Room implements Serializable {
 		}catch(Exception e){
 			e.printStackTrace();
 		}
+		descriptionname = n;
 	}
 
 	//Returns exit, or null if no a char from the list
@@ -115,8 +117,12 @@ public class Room implements Serializable {
 		name = n;
 	}
 	
+	public void setNewDescription(String s) {
+		descriptionname = s;
+	}
+	
 	public String getDescription() {
-		return Game.roomdescriptions.get(name);
+		return Game.roomdescriptions.get(descriptionname);
 	}
 
 }

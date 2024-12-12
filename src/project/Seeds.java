@@ -9,14 +9,14 @@ public class Seeds extends Item{
 	@Override
 	public void use() {
 		if(Game.currentRoom.getName() == "farm") {
-			Game.print("With a little sun, water, and care you plant the carrot seeds and grow a carrot.");
-			Item carrot = new Item("carrot", "it's a carrot! wow! you grew that!");
-			Game.inventory.add(carrot);
+			Game.print("With a little water this might grow");
+			//Update room description to say a carrot is planted
 			for(int i = 0; i < Game.inventory.size(); i++) {
 				if(Game.inventory.get(i).getName().equals("carrotseeds")) {
 					Game.inventory.remove(i);
 				}
 			}
+			Game.planted = true;
 		}
 		else {
 			Game.print("You can not plant this here.");

@@ -15,7 +15,6 @@ public class Puppy extends NPC {
 				"Yes you are! Who's a good boy?",
 				"Ew, no. You're actually kinda hideous."
 		};
-			
 			getResponse(options);
 			count++;
 		}

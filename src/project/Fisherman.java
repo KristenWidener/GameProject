@@ -5,7 +5,7 @@ public class Fisherman extends NPC{
 	public static int count = 0;
 	public static boolean gived = false;
 	public Fisherman() {
-		super("Fisherman", "a tired nice old man who unfortunately smells like fish.");
+		super("fisherman", "a tired nice old man who unfortunately smells like fish.");
 	}
 	
 	@Override
@@ -18,7 +18,6 @@ public class Fisherman extends NPC{
 			};
 			getResponse(options);
 			count++;
-			
 		}
 		else if(count == 1) {
 			say("I am so behind on my orders, I need to get worms for my custumers but the place I order them from cancelled my order." +
@@ -30,10 +29,10 @@ public class Fisherman extends NPC{
 			getResponse(options);
 			count ++;
 		}
-		else if(count == 2 & gived == false) {
+		else if(count == 2 && gived == false) {
 			say("Once you get the worms, give them to me and I will call them market okay?");
 		}
-		else if(count == 2 & gived == true) {
+		else if(count == 2 && gived == true) {
 			say("Thank you! I will give the market a call, if you head over now they should be open.");
 			count++;
 		}
@@ -63,6 +62,7 @@ public class Fisherman extends NPC{
 				break;
 			case 2:
 				say("I know that owner of the market, if you can help me by getting some worms, I can probalby get them to open u for you for a bit. ");
+				break;
 			}
 		}
 	}

@@ -4,6 +4,7 @@ public class Mayor extends NPC{
 	
 	public static int count = 0;
 	public static boolean distressed = false;
+	public static boolean moved = false;
 	
 	public Mayor() {
 		super("mayor", "it's the mayor!");
@@ -12,7 +13,8 @@ public class Mayor extends NPC{
 	@Override
 	public void talk() {
 		if(count == 0) {
-			say("HELLO! Oh my god! Thank you for opening the door! I was stuck in there forever!");
+			say("HELLO! Oh my god! Thank you for opening the door! I was stuck in there forever!"
+					+ "\nThank god I gave Sally that emergency key!");
 			String[] options = {
 				"Yeah not problem",	
 				"Can I get a planting permit?"
@@ -33,9 +35,9 @@ public class Mayor extends NPC{
 			Item permit = new Item("permit", "you can now plant thing on your farm!");
 			Game.inventory.add(permit);
 			Game.permit = true;
-//			World.office.removeNPC("mayor", mayor);
-//			World.town.setNPC("mayor", mayor);
-			//move mayor to town
+			World.town.setNPC("mayor", World.office.getNPC("mayor"));
+			World.office.removeNPC("mayor");
+			moved = true;
 			count++;
 		}
 		else {
@@ -64,6 +66,9 @@ public class Mayor extends NPC{
 				Item permit = new Item("permit", "you can now plant thing on your farm!");
 				Game.inventory.add(permit);
 				Game.permit = true;
+				World.town.setNPC("mayor", World.office.getNPC("mayor"));
+				World.office.removeNPC("mayor");
+				moved = true;
 				break;
 			}
 		}
